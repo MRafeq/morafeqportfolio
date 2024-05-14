@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Page</title>
+  <link rel="stylesheet" type="text/css" href="static/css/contact.css">
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav">
+      <a href="../templates/index.html" class="nav__logo">
+        <img src="static/css/logo.png" alt="logo">
+      </a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list grid">
+          <li class="nav__item">
+            <a id="home" href="" class="nav__link">Products</a>
+          </li>
+          <li class="nav__item">
+            <a id="about" href="" class="nav__link">About us</a>
+          </li>
+          <li class="nav__item">
+            <a id="contact" href="" class="nav__link">Contacts</a>
+          </li>
+          <li class="nav__item">
+            <a id="login" href="" class="nav__link">Sign in</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="background-overlay"></div>
+  <div class="contact-form">
+    <h1>Contact Us</h1>
+    <form id="contact-form" method="post" action="">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <input type="submit" value="Submit">
+
+      <p id="contact-form-status"></p>
+    </form>
+  </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__content">
+      <div class="footer__logo">
+        <img src="static/css/logo.png" alt="logo">
+      </div>
+    </div>
+    <div class="footer__copyright">
+      <p>&copy; 2023 Athena Group. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  
+
+  
+
+  <script src="static/javascript/javascript.js"></script>
+</body>
+</html>

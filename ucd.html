@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UCD Assignments</title>
+  <link href="css/ucd.css" rel="stylesheet" />
+  <link href="css/main.css" rel="stylesheet" />
+  <link href="css/home.css" rel="stylesheet" />
+  <link href="css/footer.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #01143e;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: lightcoral;
+    }
+    h2{
+      color: lightcoral;
+    }
+
+    p {
+      margin: 0;
+      line-height: 2;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 33px auto;
+    }
+
+    .intro {
+      margin-bottom: 40px;
+    }
+
+    .assignment {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #1f485e;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .assignment:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    }
+
+    .assignment h1 {
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .assignment.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .assignment .content {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .assignment.expanded .content {
+      display: block;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background-color: #fff;
+      color: #1f485e;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .assignment:hover .toggle-btn {
+      opacity: 1;
+    }
+
+    .assignment img {
+      margin-right: 20px;
+      max-width: 100px;
+      height: auto;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .assignment img:hover {
+      transform: scale(1.1);
+    }
+
+    .image-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    }
+
+    .image-overlay.active {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s ease;
+    }
+
+    .image-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+    .download {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    }
+
+    .download{
+    background-color: #45a049;
+    }
+
+    .download{
+    outline: none;
+    }
+    span {
+      font-size: 16px;
+      font-weight: bold;
+      color: lightcoral;
+    }
+    .button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+      background-color: #45a049;
+  }
+
+  </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="brand-name">
+                    <a href="/" class="logo"><\></a>
+                </div>
+                <div class="hamburger">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <div class="navbar">
+                    <ul>
+                      <li><a href="http://127.0.0.1:5500/#home" class="active">Home</a></li>
+                      <li><a href="http://127.0.0.1:5500/#about">About me</a></li>
+                      <li><a href="http://127.0.0.1:5500/#goals">Goals</a></li>
+                      <li><a href="#http://127.0.0.1:5500/#portfolio">Works</a></li>
+                      <li><a href="http://127.0.0.1:5500/#learningoutcomes">Learning Outcomes</a></li>
+                      <li><a href="http://127.0.0.1:5500/#others">Courses</a></li>
+                      <li><a href="http://127.0.0.1:5500/#contact">Contact</a></li>
+    
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+  <div class="container">
+        <h1>Welcome to UCD Assignments</h1>
+    
+        <div class="intro">
+        <h2>Introduction:</h2>
+        <p>
+          User-Centered Design (UCD) prioritizes users' needs. Through UCD, I gained valuable skills in user research and crafting intuitive interfaces. In media design, I conducted interviews and tests to understand users' media habits. This informed the creation of an engaging interface that aligned with their preferences, resulting in high satisfaction. UCD's iterative process allowed for early feedback and improvements, enhancing usability and visual appeal. UCD taught me the importance of user research in creating impactful media design experiences.
+        </p>
+        </div>
+    
+        <div class="assignment">
+        <img src="img/product/holland2stand.jpeg" alt="Assignment 1" />
+        <div>
+            <h1> Holland2Stay Presentation </h1>
+            <p>
+              For our initial group assignment, we selected a company and explored its positive and negative aspects. In order to accomplish this, we utilized research surveys and conducted interviews with friends and students, employing various methods from the CMD toolkit. These approaches helped us achieve our objective and obtain insightful findings.<br>
+
+            </p>
+            <div class="content">
+            <p>              
+              
+              <span>Company analysis:</span><br>
+              We conducted a comprehensive analysis of the company's products, services, history, culture, and customer base. We delved into the company's website, social media channels, financial reports, and news articles. To gain additional insights, we interviewed friends and students who had interacted with the company. This multifaceted analysis provided us with a holistic understanding of the company.<br>
+              
+              <span>Surveys:</span> <br>
+              To gather feedback on individuals' experiences with the company, we designed and distributed surveys among our friends and fellow students. By collecting their responses, we were able to capture a wide range of perspectives and evaluate satisfaction levels.<br>
+              
+              <span>Interviews: </span><br>
+              In addition to surveys, we conducted in-depth interviews with our friends and students who had personal experiences with the company. These interviews allowed us to gather detailed information, enabling us to gain deeper insights into their interactions, opinions, and suggestions for improvement.<br>
+              
+             <span> Persona creation:</span> <br>
+              To further enhance our understanding of the users' needs and preferences, we created a persona based on the collected data. This fictional representation helped us empathize with the target audience and design solutions that catered to their specific requirements.<br>
+              
+              By utilizing these CMD methods, engaging with friends and students, and creating a persona, we successfully assessed the company's strengths and weaknesses. These activities provided us with valuable insights into the user experience, enabling us to propose meaningful improvements and solutions.
+            </p>
+            </div>
+            <p>Submission Date: Feb 27, 2023</p>
+              <button class="button" onclick="window.open('holland2stay.ppt')">Open Assignment</button>
+            <button class="toggle-btn">See More</button>
+
+        </div>
+        </div>
+    
+        <div class="assignment">
+            <img src="img/product/netflix.jpeg" alt="Assignment 2" />
+            <div>
+                  <h1>Good&Bad Websites</h1>
+                  <p>In this assignment, We were given assignment to do research for good abd bad websites and here down ,the websites i did research on:</p>
+                  <div class="content">
+                      <p> <span>Good website</span>: <br>
+                        www.netflix.com <br>
+
+                        Research Methods Used:<br>
+                        1. User Interviews: <br>I conducted interviews with Netflix users to gather insights into their experience with the platform. This helped me understand their motivations, usage patterns, and overall satisfaction.<br>
+                        2. Online Surveys: <br>I distributed online surveys to a sample of Netflix subscribers to collect quantitative data on their preferences, content consumption habits, and user satisfaction.<br>
+                        3. Comparative Analysis: <br>I compared Netflix with other streaming platforms to identify its unique features, strengths, and areas for improvement.<br>
+                        4. Expert Review:<br> I sought input from industry experts who have extensive knowledge and experience in the field of streaming platforms. They provided valuable insights and perspectives on Netflix's user experience, content library, and overall platform performance.<br>
+                        
+                        Explanation:<br>
+                        To gather information about the website www.netflix.com, I utilized various research methods. Here's a breakdown of how each method contributed:<br>
+                        
+                        1. User Interviews:<br> Through in-depth interviews with Netflix users, I gained valuable insights into their experiences. Participants shared their motivations for using the platform, the types of content they prefer, and their satisfaction with the user interface and features. This qualitative data helped me understand the user perspective and identify strengths and areas for improvement.<br>
+                        
+                        2. Online Surveys:<br> By distributing surveys to a sample of Netflix subscribers, I collected quantitative data on a larger scale. The survey responses provided statistical information about user preferences, content consumption habits, and overall satisfaction levels. Analyzing this data helped me identify trends, patterns, and areas of interest within the user base.<br>
+                        
+                        3. Comparative Analysis: <br>By comparing Netflix with other streaming platforms, I gained a broader understanding of its unique features and advantages. This analysis involved examining factors such as content variety, user interface design, recommendation algorithms, and overall user experience. By identifying Netflix's distinctive qualities, I could better evaluate its strengths and assess its competitiveness in the market.<br>
+                        
+                        4. Expert Review: <br>Seeking insights from industry experts who possess deep knowledge of streaming platforms enriched my understanding of Netflix. These experts evaluated the platform based on their expertise, taking into account factors such as user interface design, content curation, user engagement strategies, and technical performance. Their perspectives provided valuable context and expert opinions, contributing to a comprehensive evaluation.<br>
+                        
+                        By employing a combination of user interviews, online surveys, comparative analysis, and expert review, I gained valuable insights into the user experience, preferences, and strengths of the website www.netflix.com. This multi-faceted research approach helped inform the understanding of the platform and its appeal to users.
+                      </p>
+                      <p> <span>Bad website</span>: <br>
+                        www.art.yale.edu <br>
+
+                        Research Methods Used:<br>
+                        1. Expert Review: <br>Evaluated the website based on usability heuristics and web design best practices.<br>
+                        2. Usability Testing: <br>Gathered feedback from participants unfamiliar with the website to identify potential usability challenges.<br>
+                        3. Content Analysis: <br>Assessed the clarity, organization, and accessibility of the website's content.<br>
+                        4. Comparative Analysis: <br>Compared the website with other leading art school websites to identify areas for improvement.<br>
+                        
+                        Explanation:<br>
+                        The website "https://www.art.yale.edu/" was analyzed using the following research methods:<br>
+                        
+                        1. Expert Review:<br> The website was evaluated based on usability heuristics and web design best practices.
+                        
+                        2. Usability Testing: <br>Participants unfamiliar with the website provided feedback to identify potential usability challenges.
+                        
+                        3. Content Analysis: <br>The clarity, organization, and accessibility of the website's content were assessed.
+                        
+                        4. Comparative Analysis: <br>The website was compared with other leading art school websites to identify areas for improvement.<br>
+                        
+                        By utilizing expert review, usability testing, content analysis, and comparative analysis, potential areas for improvement on the website "https://www.art.yale.edu/" were identified.
+                      </p>
+                    </div>
+                    <p>Submission Date: Feb 16, 2023</p>
+                    <button class="button" onclick="window.open('bad&goodwebsite.pdf')">Open Assignment</button>
+                    <button class="toggle-btn">See More</button>
+                  </div>
+         </div>
+
+        <div class="assignment">
+            <img src="img/product/psychology.jpg" alt="Assignment 3" />
+            <div>
+              <h1>Principles of design psychology</h1>
+              <p>Design psychology is a fascinating field that explores the impact of visual and interactive elements on human behavior, emotions, and cognition. By understanding the principles of design psychology, designers can create more effective and engaging experiences for users. In my quest to delve into this subject, I initially sought to comprehend the fundamental principles that underpin design psychology. Consequently, I embarked on a journey to uncover each principle and explore the websites that exemplify them. Through this exploration, I aimed to gain insights into how these principles are applied in real-world contexts. Join me on this exploration as we delve into the world of design psychology and discover the websites that embody its core principles</p>
+              <div class="content">
+                  <p>Throughout my study of the principles of design psychology, I meticulously examined each one to gain a comprehensive understanding of their significance. As I delved into each principle, I sought out example websites that exemplified their application in practical contexts. To compile my findings and share them with others, I created a detailed PDF file that includes comprehensive explanations of each principle, accompanied by the corresponding example websites.
+
+                    <br>In this document, you will find a thorough exploration of each principle, along with insights into how they can be effectively implemented in design. I have carefully curated a selection of websites that best demonstrate the application of each principle, providing a tangible and visual representation of their impact on user experiences.
+                    
+                    <br>I invite you to explore this document, as it serves as a valuable tool for both beginners and experienced designers seeking to enhance their understanding of design psychology and its influential role in creating impactful digital experiences. Together, let us delve into the world of design psychology and uncover the power behind each principle.
+                  </p>
+              </div>
+              <p>Submission Date: February 27, 2023</p>
+              <button class="button" onclick="window.open('psychology.pdf')">Open Assignment</button>
+              <button class="toggle-btn">See More</button>
+            </div>
+        </div>
+
+        <div class="assignment">
+                  <img src="img/product/benchmarking.jpg" alt="Assignment 4" />
+                  <div>
+                    <h1>Research into Methods</h1>
+                    <p>
+                      The research on benchmark creation in library method research provides a comprehensive understanding of the method and its application. The document clearly outlines the steps involved in benchmark creation, including defining the research question, data collection, analysis, and the presentation of benchmark findings. The examples provided illustrate how benchmarking can be applied to library website design to enhance user experience.<br>
+                    </p>
+                    <div class="content">
+                      <p>The research document highlights the importance of relevant and reliable sources of information, considering multiple perspectives, and analyzing data accurately. It also emphasizes the need for context and awareness of limitations in the benchmarking process. The inclusion of good and bad practices adds depth to the discussion, providing guidance on effective approaches and potential pitfalls to avoid.<br>
+                      
+                        The examples presented further illustrate the practical application of benchmark creation in real-world scenarios, such as improving a financial app and a retail website. The research document successfully demonstrates how benchmarking can lead to positive outcomes, such as increased user engagement, sales, and customer satisfaction.<br>
+  
+                        Overall, the research on benchmark creation in library method research is well-structured, informative, and provides a solid understanding of the method.  Here down there is a PDF having all research infromation.</p>
+                    </div>
+                    <button class="button" onclick="window.open('librarymethodresearch.pdf')">Open Assignment</button>
+                    <button class="toggle-btn">See More</button>
+                    <p>Submission Date: February 1, 2023</p>
+                  </div>
+         </div>
+
+        <div class="assignment">
+            <img src="img/product/mindmap.jpeg" alt="Assignment 5" />
+            <div>
+              <h1>Mind Map</h1>
+              <p>Mind maps are dynamic visual diagrams that capture and organize ideas, concepts, and tasks. Developed by Tony Buzan, they mimic the brain's natural thought processes, encouraging whole-brain thinking and enhancing memory retention. With their non-linear structure, mind maps foster creativity, aid problem-solving, and facilitate effective organization of complex information. This introduction provides a glimpse into the power of mind maps as a tool for unlocking creativity and boosting productivity.</p>
+              <div class="content">
+                  <p>
+                    We had an assignment to make mind map for the project and we divided tasks to everyone in the group. My part was creating the mind map and gain some infromation. 
+                  <br>I used Coggle website to create the mind map and i collected the infromation from the rest of the gruop and based on that I created the mind map. Here down , I added the mind map we created as PDF.
+                  </p>
+              </div>
+              <button class="button" onclick="window.open('mindmap.pdf')">Open Assignment</button>
+              <p>Submission Date: March, 2023</p>
+              <button class="toggle-btn">See More</button>
+            </div>
+        </div>
+
+        <div class="assignment">
+            <img src="img/product/Persona_.png" alt="Assignment 6" />
+            <div>
+              <h1>Persona</h1>
+              <p>The persona we made it with the group, was based on the information we gained from the survey , interviews , and some other information. <br> Here next, you can find the perona we made. Press omn the image to get bigger.</p>
+              <p>Submission Date: March 20, 2023</p>
+            </div>
+        </div>
+
+        <div class="assignment">
+          <img src="img/product/plusmins.jpeg" alt="Assignment 7" />
+          <div>
+          <h1>Extension Part-One</h1>
+          <p>For our project website, I embarked on an exciting research journey to explore new ideas and improve the user experience. Through a combination of interviews and online research, I aimed to address user needs and make our website even better. I conducted three interviews with individuals of different backgrounds and online shopping experience to gather valuable insights on the proposed feature of adding quantity control icons on the product page. Additionally, I delved into online resources to learn about best practices and user expectations. By blending interview findings with online research, I gained a comprehensive understanding of the benefits and feasibility of implementing the proposed extension. In the research pdf, I present my methodology, interview findings, and emphasize the significance of the proposed extension based on user needs. My aim is to highlight the potential impact of this extension on enhancing the overall user experience of our project website</p>
+          <div class="content">
+          </div>
+          <button class="button" onclick="window.open('ucdresearch1.pdf')">Open Assignment</button>
+          <p>Submission Date: may, 2023</p>
+        </div>
+        
+
+      </div>
+
+      <div class="assignment">
+        <img src="img/product/plusmins.jpeg" alt="Assignment 7" />
+        <div>
+        <h1>Extension Part-Two</h1>
+        <p>This research paper presents an iterative development process for a website prototype, focusing on enhancing the user experience through the implementation of quantity control icons on the product page. By following user-centered design principles, the aim was to create a refined and user-friendly interface. This paper documents the steps taken, including the creation of a paper prototype, user testing, iterative improvements, and the development of a clickable prototype using Figma. The research highlights the importance of incorporating user feedback in the design process and demonstrates the iterative nature of creating effective website experiences.</p>
+        <div class="content">
+        </div>
+        <button class="button" onclick="window.open('extension2.pdf')">Open Assignment</button>
+        <p>Submission Date: Jun, 2023</p>
+      </div>
+    
+    </div>
+  
+  <div class="image-overlay">
+    <img src="" alt="Expanded Image" />
+  </div>
+
+  <footer>
+    <div class="container">
+       <div class="row">
+          <div class="footer-logo"><\></div>
+          <div class="social-link">
+             <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+             <a href="https://twitter.com/i/flow/login"><i class="fa fa-twitter"></i></a>
+             <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+             <a href="https://github.com/login"><i class="fa fa-github"></i></a>
+             <a href="https://www.linkedin.com/login/"><i class="fa fa-linkedin"></i></a>
+          </div>
+       </div>
+    </div>
+ </footer>
+  
+  <script>
+    // JavaScript code for animation and interactivity
+    const assignments = document.querySelectorAll('.assignment');
+    const imageOverlay = document.querySelector('.image-overlay');
+    const expandedImage = imageOverlay.querySelector('img');
+    
+    const showAssignments = () => {
+      assignments.forEach((assignment, index) => {
+        setTimeout(() => {
+          assignment.classList.add('animate');
+        }, 300 * (index + 1));
+      });
+    };
+    
+    const toggleContent = (event) => {
+      const assignment = event.currentTarget.parentNode;
+      assignment.classList.toggle('expanded');
+      const content = assignment.querySelector('.content');
+      const btn = assignment.querySelector('.toggle-btn');
+      if (assignment.classList.contains('expanded')) {
+        btn.textContent = 'See Less';
+        content.style.display = 'block';
+      } else {
+        btn.textContent = 'See More';
+        content.style.display = 'none';
+      }
+    };
+    
+    const toggleImageSize = (event) => {
+      const image = event.currentTarget;
+      imageOverlay.classList.add('active');
+      expandedImage.src = image.src;
+    };
+    
+    const closeExpandedImage = () => {
+      imageOverlay.classList.remove('active');
+      expandedImage.src = '';
+    };
+    
+    // Wait for the page to load before showing assignments
+    window.addEventListener('load', showAssignments);
+    
+    // Add click event listener to each assignment button
+    const buttons = document.querySelectorAll('.toggle-btn');
+    buttons.forEach((button) => {
+      button.addEventListener('click', toggleContent);
+    });
+    
+    // Add click event listener to each assignment image
+    const images = document.querySelectorAll('.assignment img');
+    images.forEach((image) => {
+      image.addEventListener('click', toggleImageSize);
+    });
+    
+    // Add click event listener to close the expanded image overlay
+    imageOverlay.addEventListener('click', closeExpandedImage);
+
+
+    function openAssignment(url) {
+      window.open(url);
+    }
+
+
+  </script>
+</body>
+</html>

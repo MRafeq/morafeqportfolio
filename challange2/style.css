@@ -1,0 +1,76 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    --primary-color: #1856e1;
+    --font-size: 12pt;
+    font-size: var(--font-size);
+}
+input#primaryColorSelector {
+    aspect-ratio: 1/1;
+    height: 2em;
+    width: 2em;
+    padding: 0;
+    border: none;
+}
+input[type="range" i] {
+    appearance: auto;
+    cursor: default;
+    color: -internal-light-dark(rgb(16, 16, 16), rgb(255, 255, 255));
+    padding: initial;
+    border: initial;
+    margin: 2px;
+}
+.color-preview[for="primaryColorSelector"] {
+    background-color: var(--primary-color);
+    aspect-ratio: 1/1;
+    display: block;
+}
+nav{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+nav ul li{
+    list-style-type:none;
+    display: inline-block;
+    padding: 10px 20px;
+
+}
+nav ul li a{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav ul li a:hover{
+    color: #ea1538;
+    transition: .3s;
+}
+main{
+    background-image: url(images/background1.jpg);
+    background-size: cover;
+    background-position:center ;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+main .flexbox-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+main .flexbox-container .flexbox1{
+    width: 50%;
+
+}
+main .flexbox-container .flexbox2{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+  align-content: space-between;
+}
+p{
+    font-size: 20px;
+}
+

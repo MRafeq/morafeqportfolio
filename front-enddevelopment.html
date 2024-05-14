@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Front-End Development</title>
+  <link href="css/ucd.css" rel="stylesheet" />
+  <link href="css/main.css" rel="stylesheet" />
+  <link href="css/home.css" rel="stylesheet" />
+  <link href="css/footer.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #01143e;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: lightcoral;
+    }
+    h3{
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: lightcoral;
+    }
+    h2{
+      color: lightcoral;
+    }
+
+    p {
+      margin: 0;
+      line-height: 2;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 33px auto;
+    }
+
+    .intro {
+      margin-bottom: 40px;
+    }
+
+    .assignment {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #1f485e;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .assignment:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    }
+    .assignment.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .assignment .content {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .assignment.expanded .content {
+      display: block;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background-color: #fff;
+      color: #1f485e;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .assignment:hover .toggle-btn {
+      opacity: 1;
+    }
+
+    .assignment img {
+      margin-right: 20px;
+      max-width: 100px;
+      height: auto;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .assignment img:hover {
+      transform: scale(1.1);
+    }
+
+    .image-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    }
+
+    .image-overlay.active {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s ease;
+    }
+
+    .image-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+    .download {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    }
+
+    .download{
+    background-color: #45a049;
+    }
+
+    .download{
+    outline: none;
+    }
+    span {
+      font-size: 16px;
+      font-weight: bold;
+      color: lightcoral;
+    }
+    .button {
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      padding-bottom: 6px;
+      padding-top: 7px;
+      padding-left: 12px;
+      padding-right: 12px;
+  }
+  
+  
+  .button:hover {
+      background-color: #45a049;
+  }
+
+  </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="brand-name">
+                    <a href="/" class="logo"><\></a>
+                </div>
+                <div class="hamburger">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <div class="navbar">
+                    <ul>
+                      <li><a href="http://127.0.0.1:5500/#home" class="active">Home</a></li>
+                      <li><a href="http://127.0.0.1:5500/#about">About me</a></li>
+                      <li><a href="http://127.0.0.1:5500/#goals">Goals</a></li>
+                      <li><a href="#http://127.0.0.1:5500/#portfolio">Works</a></li>
+                      <li><a href="http://127.0.0.1:5500/#learningoutcomes">Learning Outcomes</a></li>
+                      <li><a href="http://127.0.0.1:5500/#others">Courses</a></li>
+                      <li><a href="http://127.0.0.1:5500/#contact">Contact</a></li>
+    
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+  <div class="container">
+        <h3>Welcome to Front-End Development</h3>
+    
+        <div class="intro">
+        <h2>Introduction:</h2>
+        <p>
+            Weekly challenges are crucial for personal growth. They build routine, new skills, confidence, and resilience while helping to achieve goals.<br>
+            The last few weeks have been dedicated to completing the Weekly Challenges and I am proud to say that it has been a very rewarding experience. These challenges gave me the opportunity to not only practice my knowledge of programming languages ​​such as JavaScript, HTML, and CSS but also build on this foundation and develop new skills. Consistently working on these weekly challenges has helped me establish a regular routine that keeps me moving toward my goals. This helps me build momentum and stay motivated. One of the most beneficial aspects of these challenges was the opportunity to apply my knowledge in a practical and meaningful way. Each challenge allowed me to try new techniques, learn from my mistakes, and gain a deeper understanding of the programming concepts I was learning. Overall, the experience with the Weekly Challenge was a very positive one and we will continue to incorporate it into our routine. Dedicating myself to these challenges allowed me to practice and build on my existing knowledge while at the same time challenging myself to learn and grow in new and exciting ways.<br>
+            Heredown are all challanges I did:
+        </p>
+        </div>
+    
+        <div class="assignment">
+            <img src="img/product/challange1.jpg" alt="Assignment 1" />
+            <div>
+                <h1>felx boxes</h1>
+                <p>
+                    In this part, I created a page and I used the flex-boxes to size them.
+                </p>
+                <p>Submission Date: Feb, 2023</p>
+                <button class="button" onclick="window.open('challange/challange.html')">Open Assignment</button>
+            </div>
+        </div> 
+
+        <div class="assignment">
+            <img src="img/product/challange2.jpg" alt="Assignment 2" />
+            <div>
+                <h1> felx Box Part Two </h1>
+                <p>
+                    Here also I useded the flex boxes to divide the page. 
+                </p>
+                <p>Submission Date: Feb, 2023</p>
+                <button class="button" onclick="window.open('challange2/challange2..html')">Open Assignment</button>
+            </div>
+        </div> 
+
+
+        <div class="assignment">
+            <img src="img/product/timer.jpg" alt="Assignment 4" />
+            <div>
+                <h1>Timer</h1>
+                <p>
+                    This challenge, I started learning more about the keyframes and how I could use it to implement more and more professional things to my page.
+                </p>
+                <p>Submission Date: March, 2023</p>
+                <button class="button" onclick="window.open('timer/timer.html')">Open Assignment</button>
+            </div>
+        </div> 
+
+        <div class="assignment">
+          <img src="img/product/ovenassignmet.jpg" alt="Assignment 5" />
+          <div>
+              <h1>Oven</h1>
+              <p>
+                Welcome to the Oven Assignment!
+
+                In this assignment, we have enhanced an existing HTML and JavaScript code that simulates a microwave oven. I added a descriptive title to the web page, styled it for visual appeal, and implemented a dynamic status display. The status updates based on the timer state, showing "Busy" when the microwave is in use and "Done" when the cooking process is complete. These improvements provide an informative and visually enhanced user interface. Explore the code and enjoy the improved functionality of the microwave oven simulation!
+              </p>
+              <p>Submission Date: March, 2023</p>
+              <button class="button" onclick="window.open('oven-assignment/test.html')">Open Assignment</button>
+          </div>
+      </div> 
+
+      <div class="assignment">
+          <img src="img/product/Calcutor.jpg" alt="Assignment 6" />
+          <div>
+              <h1>Calculator</h1>
+              <p>
+                  
+                I started learning the basics of JavaScript and gained a solid understanding. Then, I received an assignment to create a calculator. To complete it, I delved into online resources, learned more about JavaScript, and successfully finished the assignment. It was an enriching experience that showcased my growing JavaScript skills.
+
+              </p>
+              <p>Submission Date: April, 2023</p>
+              <button class="button" onclick="window.open('Calculator/index.html')">Open Assignment</button>
+          </div>
+      </div> 
+
+      <div class="assignment">
+          <img src="img/product/carspeed.png" alt="Assignment 7" />
+          <div>
+              <h1>Car Speedometer</h1>
+              <p>
+                  
+                  After expanding my knowledge of JavaScript, I decided to take on a new project: creating a car speedometer. The additional knowledge I acquired proved invaluable in tackling this task. With a deeper understanding of JavaScript concepts and techniques, I successfully implemented the speedometer functionality, reflecting my growth in JavaScript skills.
+
+              </p>
+              <p>Submission Date: April, 2023</p>
+              <button class="button" onclick="window.open('carspeedometer/index.html')">Open Assignment</button>
+          </div>
+      </div> 
+
+      <div class="assignment">
+          <img src="img/product/pac.jpeg" alt="Assignment 8" />
+          <div>
+              <h1>Pac-Man Game</h1>
+              <p>
+                  
+                  Combining the knowledge shared by my teacher and additional online resources, I took on the challenge of creating a Pacman game using JavaScript, HTML, and CSS. With the guidance I received and the information I gathered, I successfully made a captivating Pacman game that showcases my ability to apply JavaScript in a real-world project. It was an exciting endeavor that further enhanced my skills and solidified my passion for web development.
+
+              </p>
+              <p>Submission Date: May, 2023</p>
+              <button class="button" onclick="window.open('pacman/pacman.html')">Open Assignment</button>
+          </div>
+      </div> 
+
+      <div class="assignment">
+          <img src="img/product/passport.jpeg" alt="Assignment 9" />
+          <div>
+              <h1>advanced things</h1>
+              <p>
+                  
+                  While working on building a sign-up page connected with MongoDB, I embarked on a valuable learning journey. I delved into various technologies and concepts, such as Passport.js, Node.js, and MongoDB. Along the way, I explored additional packages that enhanced my understanding of web development.<br>
+
+                  Despite my efforts, I encountered some challenging errors that proved difficult to resolve independently. However, I am determined to continue my learning journey during the summer. I plan to dedicate time to further exploring the intricacies of Passport.js, diving deeper into Node.js, and expanding my knowledge of MongoDB. By doing so, I aim to improve my skills and gain a better understanding of these technologies.<br>
+                  
+                  I am excited about the opportunity to continue learning and overcoming obstacles in the pursuit of building an efficient and secure sign-up page connected with MongoDB. Through persistence and further study, I am confident that I will achieve a greater level of expertise in these areas.<br>
+
+              </p>
+              <p>Submission Date: Jun, 2023</p>
+              <button class="button" onclick="window.open('signuppage/signuppage.html')">Open Assignment</button>
+          </div>
+      </div> 
+
+      <div class="assignment">
+          <img src="img/product/js.jpeg" alt="Assignment 10" />
+          <div>
+              <h1>Research One</h1>
+              <p>
+                  In our discussion about JavaScript, we covered some interesting topics. We explored the different types in JavaScript (such as strings, numbers, booleans, objects, and functions) and learned how to use the typeof operator to determine the type of a value. We also discussed the differences between var, let, and const, which are used for variable and constant declarations.
+                  Additionally, we explored the peculiarities of logical operators (such as &&, ||, and !) and how they evaluate and return values. We touched on the behavior of arithmetic operators when used with non-number operands, as well as the concept of type coercion. Lastly, we examined equality comparison operators (==, ===, !=, and !==) and their distinctions between loose and strict equality.
+                  These topics provide a solid foundation for understanding JavaScript's fundamentals and will help in writing reliable and efficient JavaScript code.
+              </p>
+              <p>Submission Date: Jun, 2023</p>
+              <button class="button" onclick="window.open('Jsresearch.pdf')">Open Assignment</button>
+          </div>
+      </div> 
+
+      <div class="assignment">
+          <img src="img/product/js.jpeg" alt="Assignment 11" />
+          <div>
+              <h1>Research Two</h1>
+              <p>
+                  In our discussion, we explored the concept of arrow functions and their usage as callback functions in conjunction with iterative array methods in JavaScript. Arrow functions offer a concise syntax for defining functions and are particularly useful when working with arrays and applying operations to their elements.
+
+                  We delved into various iterative array methods such as forEach, map, filter, find, and reduce. These methods enable efficient manipulation, transformation, and filtering of array elements. Additionally, we touched on other essential array methods like sort, slice, splice, push, and pop, which further enhance array manipulation capabilities.
+                  
+                  These array methods are extensively utilized in Front-End Development (FED) to handle data operations, filtering, and transformations. By studying the MDN documentation and conducting experiments, you can gain a deeper understanding of their usefulness and applications in FED. 
+
+                  Incorporating your research findings into your portfolio will demonstrate your proficiency in leveraging these array methods effectively.
+              </p>
+              <p>Submission Date: Jun, 2023</p>
+              <button class="button" onclick="window.open('Jsresearch2.pdf')">Open Assignment</button>
+          </div>
+      </div> 
+    </div>
+    <div class="image-overlay">
+        <img src="" alt="Expanded Image" />
+    </div>
+
+    <footer>
+        <div class="container">
+        <div class="row">
+            <div class="footer-logo"><\></div>
+            <div class="social-link">
+                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/i/flow/login"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                <a href="https://github.com/login"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/login/"><i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
+        </div>
+    </footer>
+  
+  <script>
+    // JavaScript code for animation and interactivity
+    const assignments = document.querySelectorAll('.assignment');
+    const imageOverlay = document.querySelector('.image-overlay');
+    const expandedImage = imageOverlay.querySelector('img');
+    
+    const showAssignments = () => {
+      assignments.forEach((assignment, index) => {
+        setTimeout(() => {
+          assignment.classList.add('animate');
+        }, 300 * (index + 1));
+      });
+    };
+    
+    const toggleContent = (event) => {
+      const assignment = event.currentTarget.parentNode;
+      assignment.classList.toggle('expanded');
+      const content = assignment.querySelector('.content');
+      const btn = assignment.querySelector('.toggle-btn');
+      if (assignment.classList.contains('expanded')) {
+        btn.textContent = 'See Less';
+        content.style.display = 'block';
+      } else {
+        btn.textContent = 'See More';
+        content.style.display = 'none';
+      }
+    };
+    
+    const toggleImageSize = (event) => {
+      const image = event.currentTarget;
+      imageOverlay.classList.add('active');
+      expandedImage.src = image.src;
+    };
+    
+    const closeExpandedImage = () => {
+      imageOverlay.classList.remove('active');
+      expandedImage.src = '';
+    };
+    
+    // Wait for the page to load before showing assignments
+    window.addEventListener('load', showAssignments);
+    
+    // Add click event listener to each assignment button
+    const buttons = document.querySelectorAll('.toggle-btn');
+    buttons.forEach((button) => {
+      button.addEventListener('click', toggleContent);
+    });
+    
+    // Add click event listener to each assignment image
+    const images = document.querySelectorAll('.assignment img');
+    images.forEach((image) => {
+      image.addEventListener('click', toggleImageSize);
+    });
+    
+    // Add click event listener to close the expanded image overlay
+    imageOverlay.addEventListener('click', closeExpandedImage);
+
+
+    function openAssignment(url) {
+      window.open(url);
+    }
+
+    
+  </script>
+</body>
+</html>

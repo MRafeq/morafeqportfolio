@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Refresh" content="">
+    <title>Challange</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <div class="flexbox-container">
+            <input type="color" id="primaryColorSelectore"> 
+            <input type="range" id="fontSizeSelector" min="8" max="24">
+            <label class="color-preview" for="primaryColorSelector">
+                click here to activate the primary color selector
+            </label>
+            <Script>
+    
+                document.querySelector("#primaryColorSelector").oninput =function(){
+                    document.querySelector("body").style.setProperty(
+                        "--primary-color",
+                        document.querySelector("#primaryColorSelector").value
+                    );  
+                };
+        
+                document.querySelector("#fontSizeSelector").oninput =function(){
+                    document.querySelector("body").style.setProperty(
+                        "--font-size",
+                        document.querySelector("#fontSizeSelector").value+"pt"
+                    );  
+                };
+        
+                document.querySelector("button").onclick =function(){
+                    document.querySelector("body").classList.toggle('animated');
+                };
+            
+            </Script>
+            <div class="flexbox1">
+                <h1>Hello There</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, qui, mollitia animi molestias voluptate aliquid velit, tenetur sequi architecto repudiandae eos dolor ab magnam. Possimus illo perferendis dolores in voluptates?</p>
+            </div>
+            <div class="flexbox2">
+                
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </nav> 
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, quas rem ab eveniet veniam doloremque delectus repudiandae blanditiis quis eos aliquid sit autem dolore officiis praesentium hic! Dignissimos, in nemo?</p>
+ 
+            </div>
+        </div>
+
+        
+    </main>
+
+    
+</body>
+</html>

@@ -1,0 +1,234 @@
+/* CSS styles for the contact form */
+*{
+font-family: "Raleway" ,sans-serif;
+box-sizing: border-box;
+position: 0;
+margin: 0;
+scroll-behavior: smooth;
+text-decoration: none;
+list-style: none;
+}
+body { 
+background-color: #777;
+background-position: center;
+font-family: Arial, sans-serif;
+position: relative;
+}
+.header {
+position: fixed;
+width: 100%;
+top: 0;
+left: 0;
+background-color: #3b3b3b;
+/* background-color: linear-gradient(0deg, #00000088 20%, #ffffff44 100%); previous color*/
+opacity: 0.8;
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+border-radius: 0 0 16px 16px;
+font-size: 1.1rem;
+z-index: 100;
+}
+
+.nav {
+position: relative;
+height: 3.8rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.nav_menu {
+margin-left: auto;
+}
+
+.nav__list {
+display: flex;
+flex-direction: row;
+text-align: center;
+row-gap: 2rem;
+column-gap: 3rem;
+padding: 60px;
+}
+
+.nav__link:hover {
+color: #fff;
+}
+
+.nav__logo {
+display: flex;
+align-items: center;
+column-gap: .5rem;
+transition: color .3s;
+}
+
+.nav__logo img {
+width: 138px;
+margin-top: 5px;
+padding: 10px;
+}
+
+.nav__logo:hover {
+color: #fff;
+}
+
+
+nav #home {
+border: 1.5px solid #b08262;
+border-radius: 8px;
+padding: 12px 30px;
+outline: none;
+transition: 0.6s;
+color: white;
+}
+nav #about{
+    color: white;
+}
+nav #contact{
+    color: white;
+}
+nav #login{
+    color: white;
+}
+nav #about:hover {
+color: #FA9C5B;
+transition-duration: 0.4s;
+}
+
+nav #contact:hover {
+color: #FA9C5B;
+transition-duration: 0.4s;
+}
+
+nav #login:hover {
+color: #FA9C5B;
+transition-duration: 0.4s;
+}
+
+nav #home:hover {
+background-color: black;
+color: white;
+border-color: black;
+}
+
+.background-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+z-index: -1;
+}
+
+.contact-form {
+max-width: 500px;
+margin: 81px auto;
+padding: 20px;
+border-radius: 5px;
+box-shadow: inset 1px -2px 0px 0px #fa9c5b;
+}
+
+.contact-form h1 {
+margin-top: 0;
+text-align: center;
+color: #ffffff;
+}
+
+.contact-form label {
+font-weight: bold;
+color: #ffffff;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+width: 100%;
+padding: 10px;
+border: 0px solid #ccc;
+border-radius: 4px;
+resize: vertical;
+background-color: #3b3b3b;
+box-shadow: inset 2px 1px 0px 0px #fa9c5b;
+}
+
+.contact-form input[type="submit"] {
+width: auto;
+cursor: pointer;
+background-color: #3b3b3b;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 4px;
+font-size: 16px;
+margin-left: 177px;
+margin-top: 18px;
+box-shadow: inset 0px 0px 4px 0px #fa9c5b;
+}
+
+.contact-form input[type="submit"]:hover {
+background-color: #d38c59;
+}
+
+.contact-form .success-message {
+color: green;
+margin-top: 10px;
+text-align: center;
+}
+
+.contact-form .error-message {
+color: red;
+margin-top: 10px;
+text-align: center;
+}
+.footer {
+
+padding: 30px 0;
+text-align: center;
+}
+
+.footer__content {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+}
+
+.footer__logo img {
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 1px 4px #fa9c5b;
+    transition: transform 0.3s ease;
+}
+
+.footer__logo img:hover {
+transform: scale(1.1);
+}
+
+.footer__copyright {
+margin-top: 10px;
+}
+
+.footer__content,
+.footer__content > div {
+flex: 1;
+}
+
+.footer p {
+font-size: 14px;
+color: #777;
+margin: 0;
+}
+
+.footer p a {
+color: #555;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.footer p a:hover {
+color: #333;
+}
+  
+
+  

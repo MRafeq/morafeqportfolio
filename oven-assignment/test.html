@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Microwave</title>
+  <style>
+    h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+    margin-left: 98px;
+    }
+    #microwave {
+      position: relative;
+      width: 50%;
+      height: 400px;
+      border: 1px solid #ccc;
+      border-top-width: 1px;
+      border-right-width: 1px;
+      border-bottom-width: 1px;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      background-color: #575252;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: space-between;
+      box-shadow: inset 1px -2px 0px 0px #fa9c5b;
+      align-items: center;
+      margin: 42px 39px 43px 102px;
+    }
+    
+    #controls {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: dimgrey;
+      height: 83%;
+    }
+    
+    #display {
+      font-size: 48px;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .main{
+      width: 50%;
+      background-color: black;
+      height: 83%;
+    }
+    #buttons {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      align-content: stretch;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    button {
+      display: inline-block;
+      margin: 6px;
+      width: 63px;
+      height: 40px;
+      font-size: 14px;
+      color: #333;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      position: relative;
+    }
+    
+    button:hover {
+      background-color: #005fa1;
+    }
+    
+    #clear,
+    #start {
+      width: 120px;
+      height: 50px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #0072bb;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #clear:hover,
+    #start:hover {
+      background-color: #005fa1;
+    }
+    
+    #clear::before,
+    #start::before {
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+    
+    #clear::before {
+      background-color: #ff3333;
+    }
+    
+    #start::before {
+      background-color: #66cc33;
+    }
+    
+    #lights {
+      width: 50%;
+      height: 50%;
+    }
+    
+    .light {
+      width: 10px;
+      height: 11px;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      margin: 4px;
+      margin-bottom: 24px;
+    }
+    
+    .light:nth-child(1) {
+      background-color: #ffdb00;
+    }
+    
+    .light:nth-child(2) {
+      background-color: #ff9600;
+    }
+    
+    .light:nth-child(3) {
+      background-color: #ff3333;
+    }
+    
+    .light:nth-child(4) {
+      background-color: #0072bb;
+    }
+    
+    .light:nth-child(5) {
+      background-color: #66cc33;
+    }
+    #time{
+      margin-bottom: 122px;
+      font-size: 31px;
+      background-color: #ffffff;
+      color: #333;
+      width: 22%;
+      height: 12%;
+      margin-left: 161px;
+    }
+    .status-busy {
+      color: #ff3333;
+    }
+    
+    .status-done {
+      color: #66cc33;
+    }
+    #status{
+      
+    padding: 15px;
+    box-shadow: 0px 0px 6px 3px #005fa1;
+
+    }
+    
+    
+  </style>
+</head>
+<body>
+  <h1>Oven Assignment</h1>
+  <div id="microwave">
+    <div class="main">
+      <div id="display">00:00</div>
+      <div id="lights">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+      </div>
+    </div>
+
+    <div id="controls">
+      <div id="buttons">
+        <button class="number">1</button>
+        <button class="number">2</button>
+        <button class="number">3</button>
+        <button class="number">4</button>
+        <button class="number">5</button>
+        <button class="number">6</button>
+        <button class="number">7</button>
+        <button class="number">8</button>
+        <button class="number">9</button>
+        <button class="number">0</button>
+        <button id="temp">Restart</button>
+        <button id="stop">Stop</button>
+      </div>
+      <div>
+        <button id="start">Start</button>
+      </div>
+    </div>
+    <div id="status"></div>
+
+  </div>
+  
+
+  <script>
+    let lightsOn = false;
+    let timer;
+    let time = 0;
+    let input = "";
+    let isTimerRunning = false;
+    let currentLight = 0;
+    
+    function startTimer() {
+      if (!isTimerRunning) {
+        timer = setInterval(incrementTime, 1000);
+        startMovingLights();
+        isTimerRunning = true;
+      }
+    }
+    
+    function stopTimer() {
+      clearInterval(timer);
+      stopMovingLights();
+      isTimerRunning = false;
+    }
+    
+    function incrementTime() {
+      time--;
+      if (time < 0) {
+        stopTimer();
+        time = 0;
+        document.getElementById("display").innerHTML = "00:00";
+      } else {
+        displayTime();
+      }
+    }
+    
+    function displayTime() {
+      const minutes = Math.floor(time / 60);
+      const seconds = time % 60;
+      document.getElementById("display").innerHTML = padZero(minutes) + ":" + padZero(seconds);
+    }
+    
+    function padZero(value) {
+      return value < 10 ? "0" + value : value;
+    }
+    
+    function toggleLights(on) {
+      const lights = document.getElementsByClassName("light");
+      for (let i = 0; i < lights.length; i++) {
+        lights[i].style.opacity = on ? 1 : 0;
+      }
+    }
+    
+    function moveLights() {
+      const lights = document.getElementsByClassName("light");
+      lights[currentLight].style.opacity = 0;
+      lights[currentLight].style.backgroundColor = getNextColor(lights[currentLight]);
+      currentLight = (currentLight + 1) % lights.length;
+      lights[currentLight].style.opacity = 1;
+    }
+    
+    function getNextColor(light) {
+      const currentColor = light.style.backgroundColor;
+      switch (currentColor) {
+        case "rgb(255, 219, 0)": // yellow
+          return "rgb(255, 150, 0)"; // orange
+        case "rgb(255, 150, 0)": // orange
+          return "rgb(255, 51, 51)"; // red
+        case "rgb(255, 51, 51)": // red
+          return "rgb(0, 114, 187)"; // blue
+        case "rgb(0, 114, 187)": // blue
+          return "rgb(102, 204, 51)"; // green
+        case "rgb(102, 204, 51)": // green
+          return "rgb(255, 219, 0)"; // yellow
+        default:
+          return "rgb(255, 219, 0)"; // yellow
+      }
+    }
+    
+    function startMovingLights() {
+      if (!isTimerRunning) {
+        timer = setInterval(moveLights, 500);
+        toggleLights(true);
+        isTimerRunning = true;
+      }
+    }
+    
+    function stopMovingLights() {
+      clearInterval(timer);
+      toggleLights(false);
+      isTimerRunning = false;
+    }
+    
+    function handleNumberButtonClick(event) {
+      const number = event.target.textContent;
+      input += number;
+      document.getElementById("display").innerHTML = input;
+    }
+    
+    function handleClearButtonClick() {
+      stopTimer();
+      input = "";
+      time = 0;
+      document.getElementById("display").innerHTML = "00:00";
+    }
+    
+    function handleStartButtonClick() {
+      if (input !== "") {
+        time = parseInt(input);
+        startTimer();
+        input = "";
+      }
+    }
+    
+    function handleStopButtonClick() {
+      if (isTimerRunning) {
+        stopTimer();
+      } else {
+        startTimer();
+      }
+    }
+    // ...existing code...
+
+    function setStatus(text, className) {
+      var statusElement = document.getElementById("status");
+      statusElement.textContent = text;
+      statusElement.className = className;
+    }
+
+    function handleStartButtonClick() {
+      if (input !== "") {
+        time = parseInt(input);
+        startTimer();
+        input = "";
+        setStatus("Busy", "status-busy"); // Set status to "Busy"
+      }
+    }
+
+    function stopTimer() {
+      clearInterval(timer);
+      toggleLights(false);
+      isTimerRunning = false;
+      setStatus("Done", "status-done"); // Set status to "Done"
+    }
+
+    function handleClearButtonClick() {
+      stopTimer();
+      input = "";
+      time = 0;
+      document.getElementById("display").innerHTML = "00:00";
+      setStatus("", ""); // Clear the status
+    }
+
+// ...existing code...
+
+    
+    document.getElementById("start").addEventListener("click", handleStartButtonClick);
+    document.getElementById("temp").addEventListener("click", handleClearButtonClick);
+    document.getElementById("stop").addEventListener("click", handleStopButtonClick);
+    
+    const numberButtons = document.getElementsByClassName("number");
+    for (let i = 0; i < numberButtons.length; i++) {
+      numberButtons[i].addEventListener("click", handleNumberButtonClick);
+    }
+    
+  </script>
+</body>
+</html>

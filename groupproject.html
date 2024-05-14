@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Group Project</title>
+  <link href="css/ucd.css" rel="stylesheet" />
+  <link href="css/main.css" rel="stylesheet" />
+  <link href="css/home.css" rel="stylesheet" />
+  <link href="css/footer.css" rel="stylesheet" />
+  <style>
+        body {
+        font-family: Arial, sans-serif;
+        background-color: #01143e;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        }
+        h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: lightcoral;
+        }
+        h3{
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: lightcoral;
+        }
+        h2{
+        color: lightcoral;
+        margin-bottom: 31px;
+        }
+
+        p {
+        margin: 0;
+        line-height: 2;
+        }
+
+        .container {
+        max-width: 1200px;
+        margin: 33px auto;
+        }
+
+        .intro {
+        margin-bottom: 40px;
+        }
+
+        .assignment {
+        margin-bottom: 20px;
+        padding: 20px;
+        background-color: #1f485e;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        }
+
+        .assignment:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+        .assignment.animate {
+        opacity: 1;
+        transform: translateY(0);
+        }
+
+        .assignment .content {
+        display: none;
+        margin-top: 10px;
+        }
+
+        .assignment.expanded .content {
+        display: block;
+        }
+
+        .toggle-btn {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: #fff;
+        color: #1f485e;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        }
+
+        .assignment:hover .toggle-btn {
+        opacity: 1;
+        }
+
+        .assignment img {
+        margin-right: 20px;
+        max-width: 100px;
+        height: auto;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        }
+
+        .assignment img:hover {
+        transform: scale(1.1);
+        }
+
+        .image-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+        }
+
+        .image-overlay.active {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s ease;
+        }
+
+        .image-overlay img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        }
+        .download {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        }
+
+        .download{
+        background-color: #45a049;
+        }
+
+        .download{
+        outline: none;
+        }
+        span {
+        font-size: 16px;
+        font-weight: bold;
+        color: lightcoral;
+        }
+        .button {
+        font-size: 18px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        padding-bottom: 6px;
+        padding-top: 7px;
+        padding-left: 12px;
+        padding-right: 12px;
+        }
+        
+        
+        .button:hover {
+            background-color: #45a049;
+        }
+        .person {
+            width: 300px;
+            height: 450px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .person:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .person h2 {
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .person p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .person img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .line { 
+            width:100%; 
+            height:1px; 
+            background: #fff;
+            margin-bottom: 56px;
+            margin-top: 12px;
+        }
+        .git-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .git-link:hover {
+            background-color: #0056b3;
+        }
+        ul {
+            color: white;
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+          
+        li {
+            margin-bottom: 25px;
+            padding: 11px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="brand-name">
+                    <a href="/" class="logo"><\></a>
+                </div>
+                <div class="hamburger">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <div class="navbar">
+                    <ul>
+                        <li><a href="http://127.0.0.1:5500/#home" class="active">Home</a></li>
+                        <li><a href="http://127.0.0.1:5500/#about">About me</a></li>
+                        <li><a href="http://127.0.0.1:5500/#goals">Goals</a></li>
+                        <li><a href="#http://127.0.0.1:5500/#portfolio">Works</a></li>
+                        <li><a href="http://127.0.0.1:5500/#learningoutcomes">Learning Outcomes</a></li>
+                        <li><a href="http://127.0.0.1:5500/#others">Courses</a></li>
+                        <li><a href="http://127.0.0.1:5500/#contact">Contact</a></li>
+      
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+  <div class="container">
+        <h3>Welcome to Group Project</h3>
+    
+        <div class="intro">
+        <h2>Introduction:</h2>
+        <p>
+            Our group, Athena Arts, has undertaken an exciting project to build a website dedicated to ancient Greek toys. As we near the final stages of development, we reflect on the significant progress we have made.
+
+           From extensive research and meticulous planning to captivating design and seamless development, we have diligently worked together to bring this vision to life. Our content creators have crafted engaging narratives, while our programmers and designers have seamlessly integrated captivating visuals and dynamic functionalities.
+
+           With unwavering teamwork and dedication, we have overcome obstacles and refined every aspect of our project. Now, as we approach the finish line, we invite you to join us in exploring the captivating world of ancient Greek toys and celebrating our shared passion for history and culture. 
+        </p>
+        <a class="git-link" href="https://git.fhict.nl/I513783/ancient-toys-project">Go to Git Repository</a>
+        </div>
+        <div class="line"></div>
+        <h2>Group Member:</h2>
+        <div class="person">
+            <img src="img/product/mo.jpg" alt="Person 1">
+            <h2>Mohammed Rafeq</h2>
+            <p>Front-End Developer</p>
+        </div>
+        
+        <div class="person">
+            <img src="img/product/elena.png" alt="Person 2">
+            <h2>Elena </h2>
+            <p>Front-End Developer</p>
+        </div>
+        
+        <div class="person">
+            <img src="img/product/ben.png" alt="Person 3">
+            <h2>Benjamin</h2>
+            <p>Front-End Developer</p>
+        </div>
+        <div class="line"></div>
+        <h2>Important files:</h2>
+    
+        <div class="assignment">
+          <img src="img/product/projectplan.png" alt="Assignment 5" />
+          <div>
+              <h1>Project Plan</h1>
+              <p>
+                The first milestone on our journey as the Athena Arts group was the creation of a comprehensive project plan. We meticulously outlined our goals, identified key tasks, and allocated resources effectively. This initial step provided a solid foundation for the successful execution of our website development project, ensuring that we stay organized and focused on delivering an exceptional result.
+              </p>
+              <p>Submission Date: Feb, 2023</p>
+              <button class="button" onclick="window.open('projectplan.pdf')">Open Assignment</button>
+          </div>
+      </div> 
+
+      <div class="assignment">
+          <img src="img/product/interview2.jpeg" alt="Assignment 6" />
+          <div>
+              <h1>Interviews</h1>
+              <p>
+                  
+                Through interviews with an archaeologist specializing in ancient Greek history and culture, Greek person, and a Museum Administrator, we gained invaluable insights for our project. Their expertise guided us in creating an authentic and captivating website dedicated to ancient Greek toys.
+
+              </p>
+              <p>Submission Date: Feb, 2023</p>
+              <button class="button" onclick="window.open('Interviews.pdf')">Open Assignment</button>
+          </div>
+      </div> 
+
+      <div class="assignment">
+          <img src="img/product/surveyimage.jpeg" alt="Assignment 7" />
+          <div>
+              <h1>surveys</h1>
+               <p>
+                  
+                   After conducting a series of interviews with individuals, our focus shifted towards gathering additional information and deepening our understanding. To achieve this, we embarked on a comprehensive survey campaign. The surveys were designed with the aim of gaining more insights and becoming more attuned to the preferences and perspectives of our target audience. By reaching out to a broader range of participants, we sought to enhance our knowledge and ensure that our approach was well-informed and aligned with the needs and desires of those we serve. In this endeavor, the surveys served as a valuable tool, enabling us to gather crucial data and expand our scope of understanding. With the interviews serving as a foundation, we ventured into the realm of surveys to enrich our insights and cultivate a more informed perspective.
+
+               </p>
+              <p>Submission Date: March, 2023</p>
+              <button class="button" onclick="window.open('survey.pdf')">Open Assignment</button>
+          </div>
+      </div> 
+
+      <div class="assignment">
+        <img src="img/product/figma.png" alt="Assignment 7" />
+        <div>
+            <h1>Prototype</h1>
+             <p>
+                
+                After completing the surveys and summarizing the gathered information, our team proceeded to develop both a paper prototype and a Figma prototype. I took responsibility for creating the Figma prototype, starting after the paper prototype phase. This allowed us to translate our research findings into tangible, user-centered design concepts.
+
+             </p>
+            <p>Submission Date: March, 2023</p>
+        </div>
+    </div> 
+
+      <div class="assignment">
+          <img src="img/product/report.jpeg" alt="Assignment 8" />
+          <div>
+              <h1>Report</h1>
+              <p>
+                  
+                After completing an extensive survey campaign, we embarked on the crucial task of synthesizing and analyzing the wealth of information we had gathered. Our primary objective was to distill the key insights and patterns from the survey responses, combining them with the valuable findings from previous interviews. This comprehensive process allowed us to gain a comprehensive understanding of our target audience's preferences, motivations, and perspectives. Armed with this knowledge, we proceeded to craft a comprehensive and insightful report for our project. The report serves as a culmination of our research efforts, presenting a cohesive overview of the collected data, analysis, and recommendations. By meticulously summarizing and interpreting the information, we aimed to provide a comprehensive and valuable resource that guides the next steps of the project and facilitates informed decision-making. With the completion of the survey summary and the commencement of the report."
+
+              </p>
+              <p>Submission Date: Jun, 2023</p>
+              <button class="button" onclick="window.open('report.pdf')">Open Assignment</button>
+          </div>
+      </div> 
+      <div class="line"></div>
+      <h2>My Part In The Project:</h2>
+      <p>
+          During the course of the project, I actively contributed to various aspects and tasks, demonstrating my versatility and dedication. Here's a breakdown of my involvement in each area:
+      </p>
+      <ul>
+        <li>
+            Project Plan: <br>As a team, we collaboratively developed the project plan, ensuring that all group members had a say in its creation. Together, we meticulously documented the plan, outlining the project's objectives, timeline, and deliverables.
+        </li>
+        <li>
+            Interviews:<br> I played a crucial role in crafting interview questions and facilitating the interview process. Additionally, I took charge of summarizing the interview findings, extracting key insights that would inform our project's direction.
+        </li>
+        <li>
+            Surveys:<br> I actively participated in brainstorming survey questions, seeking input from others, and refining the questionnaire. Furthermore, I took responsibility for summarizing the survey responses, organizing the data into meaningful and actionable insights.
+        </li>
+        <li>
+            Research:<br> In the research phase, I took the initiative to explore online arts websites, seeking inspiration and valuable resources to enhance our project. This involved identifying relevant platforms and studying their features and user experiences.
+        </li>
+        <li>
+            Prototype:<br> Collaboratively, we conceptualized and iterated on design ideas, working collectively to create a functional prototype. Through thorough testing and feedback sessions, we refined our prototype, ensuring it aligned with our project goals and met user expectations.
+        </li>
+        <li>
+            Coding:<br> My specific coding tasks included creating a sign-up page, designing the footer for all pages, and developing the checkout page. I actively sought feedback from users, allowing me to make iterative improvements to my work, ultimately enhancing the user experience.
+        </li>
+        <li>
+            Report:<br> Within the report, I took on the responsibility of crafting a comprehensive introduction. I focused on highlighting the report's aim and providing an overview of the report's chapters, ensuring that readers would grasp the report's purpose and structure from the outset.
+        </li>
+      </ul>
+      <p>
+        Throughout the project, my contributions spanned multiple areas, from project planning and interviews to surveys, research, prototyping, coding, and report writing. By actively participating in these tasks, I aimed to contribute to the project's overall success and help achieve our objectives.
+      </p>
+    </div>
+    <div class="image-overlay">
+        <img src="" alt="Expanded Image" />
+    </div>
+
+    <footer>
+        <div class="container">
+        <div class="row">
+            <div class="footer-logo"><\></div>
+            <div class="social-link">
+                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/i/flow/login"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                <a href="https://github.com/login"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/login/"><i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
+        </div>
+    </footer>
+  
+  <script>
+    // JavaScript code for animation and interactivity
+    const assignments = document.querySelectorAll('.assignment');
+    const imageOverlay = document.querySelector('.image-overlay');
+    const expandedImage = imageOverlay.querySelector('img');
+    
+    const showAssignments = () => {
+      assignments.forEach((assignment, index) => {
+        setTimeout(() => {
+          assignment.classList.add('animate');
+        }, 300 * (index + 1));
+      });
+    };
+    
+    const toggleContent = (event) => {
+      const assignment = event.currentTarget.parentNode;
+      assignment.classList.toggle('expanded');
+      const content = assignment.querySelector('.content');
+      const btn = assignment.querySelector('.toggle-btn');
+      if (assignment.classList.contains('expanded')) {
+        btn.textContent = 'See Less';
+        content.style.display = 'block';
+      } else {
+        btn.textContent = 'See More';
+        content.style.display = 'none';
+      }
+    };
+    
+    const toggleImageSize = (event) => {
+      const image = event.currentTarget;
+      imageOverlay.classList.add('active');
+      expandedImage.src = image.src;
+    };
+    
+    const closeExpandedImage = () => {
+      imageOverlay.classList.remove('active');
+      expandedImage.src = '';
+    };
+    
+    // Wait for the page to load before showing assignments
+    window.addEventListener('load', showAssignments);
+    
+    // Add click event listener to each assignment button
+    const buttons = document.querySelectorAll('.toggle-btn');
+    buttons.forEach((button) => {
+      button.addEventListener('click', toggleContent);
+    });
+    
+    // Add click event listener to each assignment image
+    const images = document.querySelectorAll('.assignment img');
+    images.forEach((image) => {
+      image.addEventListener('click', toggleImageSize);
+    });
+    
+    // Add click event listener to close the expanded image overlay
+    imageOverlay.addEventListener('click', closeExpandedImage);
+
+
+    function openAssignment(url) {
+        window.open(url);
+    }
+
+    
+  </script>
+</body>
+</html>

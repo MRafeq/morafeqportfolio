@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Refresh" content="">
+    <title>Challange</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header>
+  
+            <nav>
+                <h2 class="logo">Mo<span>Rafeq</span></h2>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+     
+        
+    </header>
+    <main>
+        <input type="color" id="primaryColorSelector"><label class="color-preview" for="primaryColorSelector">
+
+                        click here to activate the primary color selector
+        </label>
+        <input type="range" id="fontSizeSelector" min="8" max="24">
+            
+        </label>
+        <div class="flexbox-container">
+            <div class="a">
+                <h1>Hello There</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, qui, mollitia animi molestias voluptate aliquid velit, tenetur sequi architecto repudiandae eos dolor ab magnam. Possimus illo perferendis dolores in voluptates?</p>
+                <button type="button" onclick="myFunction()">change color</button>
+            </div>
+        </div>
+       
+
+        <script>
+            function myFunction() {
+              document.body.style.backgroundColor = "yellow";
+            }
+            function myFunction() {
+                document.getElementById("").style.color = "#ff0000";
+                document.getElementById("").style.color = "magenta";
+                document.getElementById("").style.color = "blue";
+                document.getElementById("").style.color = "lightblue";
+            }
+        </script>
+        
+    </main>
+    <script>
+        document.querySelector("#primaryColorSelector").oninput = function(){
+            document.querySelector("body").style.setProperty("--primary-color",
+                document.querySelector("#primaryColorSelector").value
+            );
+        };
+        document.querySelector("#fontSizeSelector").oninput =function(){
+            document.querySelector("body").style.setProperty(
+                "--font-size",
+                document.querySelector("#fontSizeSelector").value="pt"
+            
+            );
+        };
+    </script>
+    
+</body>
+</html>
